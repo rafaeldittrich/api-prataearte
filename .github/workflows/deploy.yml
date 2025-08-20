@@ -34,14 +34,14 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }} -f cloud-run/Dockerfile .
-        docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+        docker build -t us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/linx-orders-importer/${{ env.SERVICE_NAME }}:${{ github.sha }} -f cloud-run/Dockerfile .
+        docker push us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/linx-orders-importer/${{ env.SERVICE_NAME }}:${{ github.sha }}
 
     - name: Deploy to Cloud Run
       if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
       run: |
         gcloud run deploy ${{ env.SERVICE_NAME }} \
-          --image gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE_NAME }}:${{ github.sha }} \
+          --image us-central1-docker.pkg.dev/${{ env.PROJECT_ID }}/linx-orders-importer/${{ env.SERVICE_NAME }}:${{ github.sha }} \
           --region ${{ env.REGION }} \
           --platform managed \
           --allow-unauthenticated \
