@@ -92,3 +92,4 @@ Os logs são exibidos no console e incluem:
 - Status da inserção no BigQuery # Trigger deploy
 # Trigger deploy with correct permissions
 # Deploy with artifactregistry.admin permission
+# Deploy with pre-created repository
