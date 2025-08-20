@@ -89,4 +89,4 @@ Exemplo de configuração do cron para execução a cada 5 minutos:
 Os logs são exibidos no console e incluem:
 - Informações sobre pedidos processados
 - Erros durante o processamento
-- Status da inserção no BigQuery 
+- Status da inserção no BigQuery # Trigger deploy
