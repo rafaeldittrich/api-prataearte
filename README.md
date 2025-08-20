@@ -90,3 +90,4 @@ Os logs são exibidos no console e incluem:
 - Informações sobre pedidos processados
 - Erros durante o processamento
 - Status da inserção no BigQuery # Trigger deploy
+# Trigger deploy with correct permissions
