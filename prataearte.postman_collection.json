@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "d394d75d-a552-49c2-8e24-48879ac301ef",
+		"name": "prataearte",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17688818"
+	},
+	"item": [
+		{
+			"name": "SearchQueueItems",
+			"protocolProfileBehavior": {
+				"disableCookies": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"QueueID\": \"<integer>\",\r\n    \"QueueAlias\": \"<string>\",\r\n    \"LockItems\": \"<boolean>\",\r\n    \"LockSpan\": {\r\n        \"HasValue\": \"<boolean>\",\r\n        \"Value\": {\r\n            \"Ticks\": \"<long>\",\r\n            \"Days\": \"<integer>\",\r\n            \"Hours\": \"<integer>\",\r\n            \"Milliseconds\": \"<integer>\",\r\n            \"Minutes\": \"<integer>\",\r\n            \"Seconds\": \"<integer>\",\r\n            \"TotalDays\": \"<double>\",\r\n            \"TotalHours\": \"<double>\",\r\n            \"TotalMilliseconds\": \"<double>\",\r\n            \"TotalMinutes\": \"<double>\",\r\n            \"TotalSeconds\": \"<double>\"\r\n        }\r\n    },\r\n    \"Attempts\": \"<integer>\",\r\n    \"Page\": {\r\n        \"PageIndex\": \"<integer>\",\r\n        \"PageSize\": \"<integer>\"\r\n    },\r\n    \"Where\": \"<string>\",\r\n    \"WhereMetadata\": \"<string>\",\r\n    \"OrderBy\": \"<string>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prataearte.layer.core.dcg.com.br/v1/Queue/API.svc/web/SearchQueueItems",
+					"protocol": "https",
+					"host": [
+						"prataearte",
+						"layer",
+						"core",
+						"dcg",
+						"com",
+						"br"
+					],
+					"path": [
+						"v1",
+						"Queue",
+						"API.svc",
+						"web",
+						"SearchQueueItems"
+					]
+				},
+				"description": "Pesquisa os itens em determinada fila de integração. Necessário requisitar o endpoint DequeueQueueItems para remover os itens da fila após consumo."
+			},
+			"response": [
+				{
+					"name": "SearchQueueItems",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"QueueID\": 31,\r\n    \"LockItems\": true,\r\n    \"Page\": {\r\n        \"PageIndex\": 0,\r\n        \"PageSize\": 10\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prataearte.layer.core.dcg.com.br/v1/Queue/API.svc/web/SearchQueueItems",
+							"protocol": "https",
+							"host": [
+								"prataearte",
+								"layer",
+								"core",
+								"dcg",
+								"com",
+								"br"
+							],
+							"path": [
+								"v1",
+								"Queue",
+								"API.svc",
+								"web",
+								"SearchQueueItems"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"Errors\": [],\n    \"IsValid\": true,\n    \"Warnings\": null,\n    \"Page\": {\n        \"ErrorMessage\": null,\n        \"Index\": 0,\n        \"PageCount\": 0,\n        \"PageSize\": 10,\n        \"RecordCount\": 1\n    },\n    \"Result\": [\n        {\n            \"Attempts\": 0,\n            \"CreatedDate\": \"/Date(1746625042383-0300)/\",\n            \"DomainEventTypeName\": null,\n            \"EntityKeyName\": \"OrderNumber\",\n            \"EntityKeyValue\": \"59744\",\n            \"EntityTypeName\": \"EZ.Store.Model.Sales.PurchaseOrder\",\n            \"LockDate\": null,\n            \"Operation\": \"I\",\n            \"QueueID\": 31,\n            \"QueueItemID\": \"16f75919-9c63-4111-a419-ed29812a0804\",\n            \"QueueSubscriptionID\": 27\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GetOrderByNumber",
+			"protocolProfileBehavior": {
+				"disableCookies": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<string>",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prataearte.layer.core.dcg.com.br/v1/Sales/API.svc/web/GetOrderByNumber",
+					"protocol": "https",
+					"host": [
+						"prataearte",
+						"layer",
+						"core",
+						"dcg",
+						"com",
+						"br"
+					],
+					"path": [
+						"v1",
+						"Sales",
+						"API.svc",
+						"web",
+						"GetOrderByNumber"
+					]
+				},
+				"description": "Endpoint utilizado para consumir os dados do pedido.\n\n_**PaymentStatus**_: Can be `67 - Cancelled`, `68 - Due`, `73 - Collect`, `79 - OverPaid`, `80 - Paid`, `82 - Refunded`, `84 - PartiallyPaid`, `85 - OverRefunded` or `88 - NotApplicable`\n\n_**ShipmentStatus**_: Can be `68 - Delivered`, `80 - PartiallyShipped`, `83 - Shipped`, `85 - Undeliverable`, `87 - Waiting` or `88 - NotApplicable`  \n_**CustomerType**_: 'P' - Person / 'C' - Company / 'G' - Guest  \n_**AddressType**_: Can be `66 - Billing`, `68 - Delivery` or `82 - Return`\n\n_**PaymentType:**_ Can be `1 - CreditCard`, `2 - MoneyTransfer`, `3 - PaymentSlip`, `4 - Custom`, `5 - System`, `6 - DebitCard`, `7 - Financing`, `8 - Wallet`, `9 - Deposit`, `10 - Transparent`, `11 - PlaceHolder`, `12 - Offline`, `13 - External`, `14 - GroupPayment`, `15 - LoyaltyCard`, `17 - CustomCard`, `18 - GenericExternal` or `19 - Pix`\n\n_**OrderStatusID**_: Request SearchOrderStatus for more information"
+			},
+			"response": [
+				{
+					"name": "GetOrderByNumber",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "59744",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prataearte.layer.core.dcg.com.br/v1/Sales/API.svc/web/GetOrderByNumber",
+							"protocol": "https",
+							"host": [
+								"prataearte",
+								"layer",
+								"core",
+								"dcg",
+								"com",
+								"br"
+							],
+							"path": [
+								"v1",
+								"Sales",
+								"API.svc",
+								"web",
+								"GetOrderByNumber"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"AcquiredDate\": \"/Date(1746587947533-0300)/\",\n    \"Addresses\": [\n        {\n            \"AddressLine\": \"Rua Lídia Klinger\",\n            \"AddressNotes\": \"Casa 3\",\n            \"AddressType\": 68,\n            \"City\": \"Curitiba\",\n            \"ContactDocumentNumber\": null,\n            \"ContactName\": \"Jamille Fogo\",\n            \"ContactPhone\": \"\",\n            \"Landmark\": \"\",\n            \"Name\": \"Jamille Nascimento Toca Fogo\",\n            \"Neighbourhood\": \"Abranches\",\n            \"Number\": \"164\",\n            \"OrderAddressID\": 54721,\n            \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n            \"PointOfSaleID\": null,\n            \"PostalCode\": \"82130160\",\n            \"State\": \"PR\"\n        },\n        {\n            \"AddressLine\": \"Rua Lídia Klinger\",\n            \"AddressNotes\": \"Casa 3\",\n            \"AddressType\": 66,\n            \"City\": \"Curitiba\",\n            \"ContactDocumentNumber\": null,\n            \"ContactName\": \"Jamille Fogo\",\n            \"ContactPhone\": \"\",\n            \"Landmark\": \"\",\n            \"Name\": \"Jamille Nascimento Toca Fogo\",\n            \"Neighbourhood\": \"Abranches\",\n            \"Number\": \"164\",\n            \"OrderAddressID\": 54722,\n            \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n            \"PointOfSaleID\": null,\n            \"PostalCode\": \"82130160\",\n            \"State\": \"PR\"\n        }\n    ],\n    \"CancelledDate\": \"/Date(1746624882047-0300)/\",\n    \"CommissionAmount\": 0,\n    \"CreatedBy\": \"\",\n    \"CreatedChannel\": \"WebSite\",\n    \"CreatedDate\": \"/Date(1746586922437-0300)/\",\n    \"CustomerBirthDate\": \"/Date(1135130400000-0200)/\",\n    \"CustomerCNPJ\": null,\n    \"CustomerCPF\": \"12990305998\",\n    \"CustomerCellPhone\": \"41985060763\",\n    \"CustomerEmail\": \"jamillen818@gmail.com\",\n    \"CustomerGender\": \"F\",\n    \"CustomerID\": 50889,\n    \"CustomerName\": \"Jamille Fogo\",\n    \"CustomerPhone\": \"\",\n    \"CustomerSiteTaxPayer\": null,\n    \"CustomerTradingName\": null,\n    \"CustomerType\": \"P\",\n    \"DeliveryAmount\": 9.94,\n    \"DeliveryMethods\": [\n        {\n            \"Amount\": 9.94,\n            \"CarrierName\": \"Correios\",\n            \"DeliveryEstimatedDate\": null,\n            \"DeliveryGroupID\": 2112864062,\n            \"DeliveryLogisticType\": null,\n            \"DeliveryMethodAlias\": \"Sedex\",\n            \"DeliveryMethodID\": 610,\n            \"DeliveryMethodType\": \"C\",\n            \"DockID\": null,\n            \"ETA\": \"2|D\",\n            \"ETADays\": 2,\n            \"ExtendedProperties\": [],\n            \"ExternalID\": null,\n            \"IntegrationID\": \"\",\n            \"LogisticContractId\": \"fe_sedex\",\n            \"LogisticContractName\": \"Sedex\",\n            \"LogisticOptionId\": \"list_fe_sedex-com-contrato\",\n            \"LogisticOptionName\": \"Sedex\",\n            \"OrderDeliveryMethodID\": 27364,\n            \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n            \"PointOfSaleID\": null,\n            \"PointOfSaleIntegrationID\": null,\n            \"PointOfSaleName\": null,\n            \"ScheduleDate\": null,\n            \"ScheduleDisplayName\": null,\n            \"ScheduleEndTime\": null,\n            \"ScheduleShiftID\": null,\n            \"ScheduleStartTime\": null,\n            \"ScheduleTax\": null,\n            \"WarehouseID\": null,\n            \"WarehouseIntegrationID\": null\n        }\n    ],\n    \"DeliveryPostalCode\": \"82130160\",\n    \"DiscountAmount\": 0,\n    \"Discounts\": [],\n    \"ExternalInfo\": null,\n    \"Fulfillments\": [\n        {\n            \"Address\": {\n                \"AddressLine\": \"Rua Lídia Klinger\",\n                \"AddressNotes\": \"Casa 3\",\n                \"AddressType\": 68,\n                \"City\": \"Curitiba\",\n                \"ContactDocumentNumber\": null,\n                \"ContactName\": \"Jamille Fogo\",\n                \"ContactPhone\": \"\",\n                \"Landmark\": \"\",\n                \"Name\": \"Jamille Nascimento Toca Fogo\",\n                \"Neighbourhood\": \"Abranches\",\n                \"Number\": \"164\",\n                \"OrderAddressID\": 54721,\n                \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n                \"PointOfSaleID\": null,\n                \"PostalCode\": \"82130160\",\n                \"State\": \"PR\"\n            },\n            \"CreatedBy\": \"\",\n            \"CreatedDate\": \"/Date(1746586922877-0300)/\",\n            \"DeliveryAmount\": 9.94,\n            \"DeliveryLocationDescription\": \"10909.27 - Shopping Palladium - Piso L1, Loja 1063\",\n            \"DeliveryLocationID\": \"10909.27\",\n            \"DeliveryMethod\": {\n                \"Amount\": 9.94,\n                \"CarrierName\": \"Correios\",\n                \"DeliveryEstimatedDate\": null,\n                \"DeliveryGroupID\": 2112864062,\n                \"DeliveryLogisticType\": null,\n                \"DeliveryMethodAlias\": \"Sedex\",\n                \"DeliveryMethodID\": 610,\n                \"DeliveryMethodType\": \"C\",\n                \"DockID\": null,\n                \"ETA\": \"2|D\",\n                \"ETADays\": 2,\n                \"ExtendedProperties\": [],\n                \"ExternalID\": null,\n                \"IntegrationID\": \"\",\n                \"LogisticContractId\": \"fe_sedex\",\n                \"LogisticContractName\": \"Sedex\",\n                \"LogisticOptionId\": \"list_fe_sedex-com-contrato\",\n                \"LogisticOptionName\": \"Sedex\",\n                \"OrderDeliveryMethodID\": 27364,\n                \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n                \"PointOfSaleID\": null,\n                \"PointOfSaleIntegrationID\": null,\n                \"PointOfSaleName\": null,\n                \"ScheduleDate\": null,\n                \"ScheduleDisplayName\": null,\n                \"ScheduleEndTime\": null,\n                \"ScheduleShiftID\": null,\n                \"ScheduleStartTime\": null,\n                \"ScheduleTax\": null,\n                \"WarehouseID\": null,\n                \"WarehouseIntegrationID\": null\n            },\n            \"DiscountAmount\": 0,\n            \"ExternalFriendlyKey\": \"F1\",\n            \"ExternalID\": \"F1\",\n            \"FulfillmentID\": \"d0339fc9-4736-4275-bb8f-5b5865be8037\",\n            \"FulfillmentNumber\": \"59744-F-001\",\n            \"FulfillmentStatusID\": 1,\n            \"GlobalFulfillmentStatus\": 0,\n            \"Invoice\": {\n                \"CFOP\": \"5102\",\n                \"Code\": \"41250547784853000397550030000098101042403168\",\n                \"CreatedAt\": \"/Date(1746598440000-0300)/\",\n                \"FulfillmentID\": \"d0339fc9-4736-4275-bb8f-5b5865be8037\",\n                \"ID\": null,\n                \"InvoicePdf\": \"\",\n                \"IsIssued\": true,\n                \"IssuedAt\": \"/Date(1746598440000-0300)/\",\n                \"Number\": \"9810\",\n                \"Observation\": \"Autorizado o uso da NFe\",\n                \"Operation\": \"Venda merc.adq.receb.de terceiros\",\n                \"OrderInvoiceID\": \"7b00882b-fcd8-47c9-a140-108885d73b0f\",\n                \"ProcessedAt\": \"/Date(1746620040000-0300)/\",\n                \"Series\": \"3\",\n                \"UpdatedAt\": null,\n                \"Url\": \"https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=completa&tipoConteudo=XbSeqxE8pl8=&nfe=41250547784853000397550030000098101042403168\",\n                \"XML\": \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?><nfeProc versao=\\\"4.00\\\" xmlns=\\\"http://www.portalfiscal.inf.br/nfe\\\"><NFe xmlns=\\\"http://www.portalfiscal.inf.br/nfe\\\"><infNFe Id=\\\"NFe41250547784853000397550030000098101042403168\\\" versao=\\\"4.00\\\"><ide><cUF>41</cUF><cNF>04240316</cNF><natOp>[S] VENDA MERCADORIA-PRODUCAO DO ESTABEL</natOp><mod>55</mod><serie>3</serie><nNF>9810</nNF><dhEmi>2025-05-07T09:13:00-03:00</dhEmi><tpNF>1</tpNF><idDest>1</idDest><cMunFG>4106902</cMunFG><tpImp>1</tpImp><tpEmis>1</tpEmis><cDV>8</cDV><tpAmb>1</tpAmb><finNFe>1</finNFe><indFinal>1</indFinal><indPres>2</indPres><indIntermed>0</indIntermed><procEmi>0</procEmi><verProc>Microvix . nf-e 4.00</verProc></ide><emit><CNPJ>47784853000397</CNPJ><xNome>PRATA E PRATA COMERCIAL LTDA</xNome><enderEmit><xLgr>Rua Marechal Deodoro</xLgr><nro>344 -</nro><xCpl>CJ 112 COND NAO INFORMADO BL ATALAIA</xCpl><xBairro>Centro</xBairro><cMun>4106902</cMun><xMun>CURITIBA</xMun><UF>PR</UF><CEP>80010010</CEP><cPais>1058</cPais><xPais>BRASIL</xPais><fone>4130292361</fone></enderEmit><IE>9099854208</IE><CRT>1</CRT></emit><dest><CPF>12990305998</CPF><xNome>JAMILLE FOGO</xNome><enderDest><xLgr>Rua Lidia Klinger</xLgr><nro>164</nro><xCpl>Casa 3</xCpl><xBairro>Abranches</xBairro><cMun>4106902</cMun><xMun>CURITIBA</xMun><UF>PR</UF><CEP>82130160</CEP><cPais>1058</cPais><xPais>BRASIL</xPais><fone>41985060763</fone></enderDest><indIEDest>9</indIEDest><email>jamillen818@gmail.com</email></dest><entrega><CPF>12990305998</CPF><xLgr>Rua Lidia Klinger</xLgr><nro>164</nro><xCpl>Casa 3</xCpl><xBairro>Abranches</xBairro><cMun>4106902</cMun><xMun>Curitiba</xMun><UF>PR</UF><CEP>82130160</CEP><cPais>1058</cPais><xPais>BRASIL</xPais></entrega><det nItem=\\\"1\\\"><prod><cProd>58199</cProd><cEAN>SEM GTIN</cEAN><xProd>Gargantilha Prata Ponto Luz Coracao Zirconia</xProd><NCM>71070000</NCM><CFOP>5102</CFOP><uCom>PC</uCom><qCom>1</qCom><vUnCom>110.00</vUnCom><vProd>110.00</vProd><cEANTrib>SEM GTIN</cEANTrib><uTrib>PC</uTrib><qTrib>1</qTrib><vUnTrib>110.00</vUnTrib><vFrete>9.94</vFrete><indTot>1</indTot><xPed>25315</xPed></prod><imposto><vTotTrib>0.00</vTotTrib><ICMS><ICMSSN102><orig>0</orig><CSOSN>102</CSOSN></ICMSSN102></ICMS><IPI><cEnq>999</cEnq><IPITrib><CST>99</CST><vBC>0.00</vBC><pIPI>0.00</pIPI><vIPI>0.00</vIPI></IPITrib></IPI><PIS><PISOutr><CST>49</CST><vBC>0.00</vBC><pPIS>0.00</pPIS><vPIS>0.00</vPIS></PISOutr></PIS><COFINS><COFINSOutr><CST>49</CST><vBC>0.00</vBC><pCOFINS>0.00</pCOFINS><vCOFINS>0.00</vCOFINS></COFINSOutr></COFINS></imposto><infAdProd>Total aproximado dos tributos RS 0,00 . Ref. F58199</infAdProd></det><total><ICMSTot><vBC>0.00</vBC><vICMS>0.00</vICMS><vICMSDeson>0.00</vICMSDeson><vFCP>0.00</vFCP><vBCST>0.00</vBCST><vST>0.00</vST><vFCPST>0.00</vFCPST><vFCPSTRet>0.00</vFCPSTRet><vProd>110.00</vProd><vFrete>9.94</vFrete><vSeg>0.00</vSeg><vDesc>0.00</vDesc><vII>0.00</vII><vIPI>0.00</vIPI><vIPIDevol>0.00</vIPIDevol><vPIS>0.00</vPIS><vCOFINS>0.00</vCOFINS><vOutro>0.00</vOutro><vNF>119.94</vNF><vTotTrib>0.00</vTotTrib></ICMSTot></total><transp><modFrete>0</modFrete><transporta><CNPJ>34028316000103</CNPJ><xNome>EMPRESA BRASILEIRA DE CORREIOS E TELEGRAFOS</xNome><IE>ISENTO</IE><xEnder>SBN Quadra 1 Bloco A, S-N</xEnder><xMun>Brasilia</xMun><UF>DF</UF></transporta><vol><qVol>1</qVol><esp>CAIXA</esp><pesoL>0.200</pesoL><pesoB>0.200</pesoB></vol></transp><pag><detPag><indPag>1</indPag><tPag>03</tPag><vPag>119.94</vPag><card><tpIntegra>1</tpIntegra><CNPJ>47784853000397</CNPJ><tBand>02</tBand><cAut>601914</cAut><CNPJReceb>47784853000397</CNPJReceb><idTermPag>10909_47784853000397_VF</idTermPag></card></detPag></pag><infAdic><infCpl>A garantia do produto é mediante a apresentação da Nota-Fiscal. . Pedido original: 59744 . Compra Padrão, Cliente Novo, Compra com promoção . Entregar para: Jamille Fogo . Método de transporte: Sedex . LOJA VIRTUAL - COMPRA: 25315 Token: 10909279c59810070525 . Nome do Vendedor: E-commerce . Valor aproximado dos tributos: 0,00</infCpl></infAdic><infRespTec><CNPJ>54517628000198</CNPJ><xContato>Rodrigo Kreiss</xContato><email>depto.homologacao@linx.com.br</email><fone>51992801474</fone></infRespTec></infNFe><Signature xmlns=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><SignedInfo><CanonicalizationMethod Algorithm=\\\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\\\" /><SignatureMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\\\" /><Reference URI=\\\"#NFe41250547784853000397550030000098101042403168\\\"><Transforms><Transform Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\\\" /><Transform Algorithm=\\\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\\\" /></Transforms><DigestMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#sha1\\\" /><DigestValue>AUiYFdW1nJqvIEyUH/ySNqV3EYY=</DigestValue></Reference></SignedInfo><SignatureValue>T8PTP3moH1mWOWuAHTHRKRqaC/bNTNBsZzbnGG6gVQZS6HTzNs6p8yZuZRWvdk4phifAbB4FkTTCj8lZM/pagEUHv00P9UxKS0hHRcbXgCJeCDHYIQ27UWHWzAJsm7hnkj+QLMDUNI6Wuo1c1pBqWqWB76XtTNV02EH+PO3QbAJXBaq33z1++p3rYni43/LeSOa9n/39g7DJzXdZe0W3bxCNP0QAXjLl45Ck6EDKNPrVaAlfFjkgKKB6jHZx/HFVwuaJHRvxfrtOri1YyUv0FUqjpkza4DtlTQsR430WSH2IFRJmXyv4UGQhf6vSOJbU4yobB9WOmxJ8XaRmUt/llA==</SignatureValue><KeyInfo><X509Data><X509Certificate>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</X509Certificate></X509Data></KeyInfo></Signature></NFe><protNFe versao=\\\"4.00\\\"><infProt><tpAmb>1</tpAmb><verAplic>PR-v4_9_1</verAplic><chNFe>41250547784853000397550030000098101042403168</chNFe><dhRecbto>2025-05-07T09:14:05-03:00</dhRecbto><nProt>141250144909467</nProt><digVal>AUiYFdW1nJqvIEyUH/ySNqV3EYY=</digVal><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt></protNFe></nfeProc>\"\n            },\n            \"IsVirtual\": false,\n            \"Items\": [\n                {\n                    \"BundleKitDiscount\": null,\n                    \"BundleKitDiscountValue\": null,\n                    \"BundlePriceType\": null,\n                    \"CatalogID\": 1,\n                    \"CatalogItemType\": 6,\n                    \"Depth\": 27,\n                    \"DiscountAmount\": 0,\n                    \"ExternalInfo\": null,\n                    \"FormData\": [],\n                    \"FulfillmentID\": \"d0339fc9-4736-4275-bb8f-5b5865be8037\",\n                    \"Height\": 9,\n                    \"InStockHandlingDays\": 1,\n                    \"IncreaseAmount\": 0,\n                    \"IsDeleted\": false,\n                    \"IsDeliverable\": true,\n                    \"IsFreeOffer\": false,\n                    \"IsFreeShipping\": false,\n                    \"IsGiftWrapping\": false,\n                    \"IsService\": false,\n                    \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n                    \"OrderItemID\": 41134,\n                    \"OutStockHandlingDays\": 20,\n                    \"ParentItemID\": null,\n                    \"Price\": 110,\n                    \"PriceListID\": 1,\n                    \"ProductID\": 5441,\n                    \"ProductIntegrationID\": \"PR.10909.F58199\",\n                    \"ProductName\": \"Gargantilha Prata Ponto Luz Coração Zircônia\",\n                    \"Properties\": [\n                        {\n                            \"Amount\": 0,\n                            \"Message\": \"\",\n                            \"OrderItemID\": 0,\n                            \"OrderPropertyID\": 151245,\n                            \"Reference\": \"tsid\",\n                            \"Source\": \"Site\",\n                            \"Type\": \"Metadata\",\n                            \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>tsid</Name><Value>33</Value><IsCustomization>false</IsCustomization><DisplayName /><OptionName /><IsRequired>false</IsRequired></BasketMetadata>\"\n                        },\n                        {\n                            \"Amount\": 0,\n                            \"Message\": \"\",\n                            \"OrderItemID\": 0,\n                            \"OrderPropertyID\": 151246,\n                            \"Reference\": \"utm_source\",\n                            \"Source\": \"Site\",\n                            \"Type\": \"Metadata\",\n                            \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>utm_source</Name><Value>www.google.com</Value><IsCustomization>false</IsCustomization><DisplayName /><OptionName /><IsRequired>false</IsRequired></BasketMetadata>\"\n                        },\n                        {\n                            \"Amount\": 0,\n                            \"Message\": \"\",\n                            \"OrderItemID\": 0,\n                            \"OrderPropertyID\": 151247,\n                            \"Reference\": \"groupKey\",\n                            \"Source\": \"Site\",\n                            \"Type\": \"Metadata\",\n                            \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>groupKey</Name><Value>DEFAULT</Value><IsCustomization>false</IsCustomization><DisplayName /><OptionName /><IsRequired>false</IsRequired></BasketMetadata>\"\n                        },\n                        {\n                            \"Amount\": 0,\n                            \"Message\": \"\",\n                            \"OrderItemID\": 0,\n                            \"OrderPropertyID\": 151248,\n                            \"Reference\": \"BasketLineData\",\n                            \"Source\": \"Site\",\n                            \"Type\": \"BasketLineData\",\n                            \"XmlExtended\": \"<BasketLineData><ProductData>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</ProductData><ProductSelectionData>H4sIAAAAAAAAAxJ4LAIAAAD//wMAMA7ujAMAAAA=</ProductSelectionData></BasketLineData>\"\n                        }\n                    ],\n                    \"Qty\": 1,\n                    \"SKU\": \"10909.58199\",\n                    \"SKUIntegrationID\": \"10909.58199\",\n                    \"SellerSKU\": null,\n                    \"SerialKey\": null,\n                    \"SkuID\": 2659,\n                    \"SkuName\": \"Gargantilha Prata Ponto Luz Coração Zircônia\",\n                    \"SpecialType\": 78,\n                    \"Status\": null,\n                    \"Subtotal\": 110,\n                    \"SubtotalAdjustment\": 0,\n                    \"TaxationAmount\": 0,\n                    \"Total\": 110,\n                    \"UPC\": \"58199\",\n                    \"WareHouseID\": 257833,\n                    \"WarehouseIntegrationID\": \"10909.27\",\n                    \"Warehouses\": [],\n                    \"WebSiteID\": 1,\n                    \"Weight\": 0.2,\n                    \"Width\": 17\n                }\n            ],\n            \"ModifiedBy\": null,\n            \"ModifiedDate\": \"/Date(1746586922880-0300)/\",\n            \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n            \"Shipment\": {\n                \"AssignUserId\": null,\n                \"AssignUserName\": null,\n                \"DeliveryMethodID\": 610,\n                \"DockID\": null,\n                \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n                \"OrderShipmentID\": \"8224da46-98e3-4d15-83b0-9e348defebef\",\n                \"Packages\": [],\n                \"ShipmentNumber\": \"#001\",\n                \"ShipmentStatus\": \"A\"\n            },\n            \"Total\": 119.94,\n            \"Type\": \"Shipment\"\n        }\n    ],\n    \"GlobalStatus\": 67,\n    \"HasConflicts\": false,\n    \"IncreaseAmount\": 0,\n    \"Items\": [\n        {\n            \"BundleKitDiscount\": null,\n            \"BundleKitDiscountValue\": null,\n            \"BundlePriceType\": null,\n            \"CatalogID\": 1,\n            \"CatalogItemType\": 6,\n            \"Depth\": 27,\n            \"DiscountAmount\": 0,\n            \"ExternalInfo\": null,\n            \"FormData\": [],\n            \"FulfillmentID\": \"d0339fc9-4736-4275-bb8f-5b5865be8037\",\n            \"Height\": 9,\n            \"InStockHandlingDays\": 1,\n            \"IncreaseAmount\": 0,\n            \"IsDeleted\": false,\n            \"IsDeliverable\": true,\n            \"IsFreeOffer\": false,\n            \"IsFreeShipping\": false,\n            \"IsGiftWrapping\": false,\n            \"IsService\": false,\n            \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n            \"OrderItemID\": 41134,\n            \"OutStockHandlingDays\": 20,\n            \"ParentItemID\": null,\n            \"Price\": 110,\n            \"PriceListID\": 1,\n            \"ProductID\": 5441,\n            \"ProductIntegrationID\": \"PR.10909.F58199\",\n            \"ProductName\": \"Gargantilha Prata Ponto Luz Coração Zircônia\",\n            \"Properties\": [\n                {\n                    \"Amount\": 0,\n                    \"Message\": \"\",\n                    \"OrderItemID\": 0,\n                    \"OrderPropertyID\": 151245,\n                    \"Reference\": \"tsid\",\n                    \"Source\": \"Site\",\n                    \"Type\": \"Metadata\",\n                    \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>tsid</Name><Value>33</Value><IsCustomization>false</IsCustomization><DisplayName /><OptionName /><IsRequired>false</IsRequired></BasketMetadata>\"\n                },\n                {\n                    \"Amount\": 0,\n                    \"Message\": \"\",\n                    \"OrderItemID\": 0,\n                    \"OrderPropertyID\": 151246,\n                    \"Reference\": \"utm_source\",\n                    \"Source\": \"Site\",\n                    \"Type\": \"Metadata\",\n                    \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>utm_source</Name><Value>www.google.com</Value><IsCustomization>false</IsCustomization><DisplayName /><OptionName /><IsRequired>false</IsRequired></BasketMetadata>\"\n                },\n                {\n                    \"Amount\": 0,\n                    \"Message\": \"\",\n                    \"OrderItemID\": 0,\n                    \"OrderPropertyID\": 151247,\n                    \"Reference\": \"groupKey\",\n                    \"Source\": \"Site\",\n                    \"Type\": \"Metadata\",\n                    \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>groupKey</Name><Value>DEFAULT</Value><IsCustomization>false</IsCustomization><DisplayName /><OptionName /><IsRequired>false</IsRequired></BasketMetadata>\"\n                },\n                {\n                    \"Amount\": 0,\n                    \"Message\": \"\",\n                    \"OrderItemID\": 0,\n                    \"OrderPropertyID\": 151248,\n                    \"Reference\": \"BasketLineData\",\n                    \"Source\": \"Site\",\n                    \"Type\": \"BasketLineData\",\n                    \"XmlExtended\": \"<BasketLineData><ProductData>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</ProductData><ProductSelectionData>H4sIAAAAAAAAAxJ4LAIAAAD//wMAMA7ujAMAAAA=</ProductSelectionData></BasketLineData>\"\n                }\n            ],\n            \"Qty\": 1,\n            \"SKU\": \"10909.58199\",\n            \"SKUIntegrationID\": \"10909.58199\",\n            \"SellerSKU\": null,\n            \"SerialKey\": null,\n            \"SkuID\": 2659,\n            \"SkuName\": \"Gargantilha Prata Ponto Luz Coração Zircônia\",\n            \"SpecialType\": 78,\n            \"Status\": null,\n            \"Subtotal\": 110,\n            \"SubtotalAdjustment\": 0,\n            \"TaxationAmount\": 0,\n            \"Total\": 110,\n            \"UPC\": \"58199\",\n            \"WareHouseID\": 257833,\n            \"WarehouseIntegrationID\": \"10909.27\",\n            \"Warehouses\": [],\n            \"WebSiteID\": 1,\n            \"Weight\": 0.2,\n            \"Width\": 17\n        }\n    ],\n    \"ItemsCount\": 1,\n    \"ItemsQty\": 1,\n    \"MarketPlaceBrand\": \"Store\",\n    \"ModifiedBy\": null,\n    \"ModifiedDate\": \"/Date(1746625159613-0300)/\",\n    \"MultiSiteTenant\": {\n        \"BrandId\": \"prataearte.com.br\",\n        \"BrandType\": \"Store\",\n        \"CompanyId\": \"prataearte\",\n        \"DeviceType\": \"DESKTOP\"\n    },\n    \"OrderGroupID\": null,\n    \"OrderGroupNumber\": null,\n    \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n    \"OrderInvoice\": {\n        \"CFOP\": \"5102\",\n        \"Code\": \"41250547784853000397550030000098101042403168\",\n        \"CreatedAt\": \"/Date(1746598440000-0300)/\",\n        \"FulfillmentID\": \"d0339fc9-4736-4275-bb8f-5b5865be8037\",\n        \"ID\": null,\n        \"InvoicePdf\": \"\",\n        \"IsIssued\": true,\n        \"IssuedAt\": \"/Date(1746598440000-0300)/\",\n        \"Number\": \"9810\",\n        \"Observation\": \"Autorizado o uso da NFe\",\n        \"Operation\": \"Venda merc.adq.receb.de terceiros\",\n        \"OrderInvoiceID\": \"7b00882b-fcd8-47c9-a140-108885d73b0f\",\n        \"ProcessedAt\": \"/Date(1746620040000-0300)/\",\n        \"Series\": \"3\",\n        \"UpdatedAt\": null,\n        \"Url\": \"https://www.nfe.fazenda.gov.br/portal/consultaRecaptcha.aspx?tipoConsulta=completa&tipoConteudo=XbSeqxE8pl8=&nfe=41250547784853000397550030000098101042403168\",\n        \"XML\": \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?><nfeProc versao=\\\"4.00\\\" xmlns=\\\"http://www.portalfiscal.inf.br/nfe\\\"><NFe xmlns=\\\"http://www.portalfiscal.inf.br/nfe\\\"><infNFe Id=\\\"NFe41250547784853000397550030000098101042403168\\\" versao=\\\"4.00\\\"><ide><cUF>41</cUF><cNF>04240316</cNF><natOp>[S] VENDA MERCADORIA-PRODUCAO DO ESTABEL</natOp><mod>55</mod><serie>3</serie><nNF>9810</nNF><dhEmi>2025-05-07T09:13:00-03:00</dhEmi><tpNF>1</tpNF><idDest>1</idDest><cMunFG>4106902</cMunFG><tpImp>1</tpImp><tpEmis>1</tpEmis><cDV>8</cDV><tpAmb>1</tpAmb><finNFe>1</finNFe><indFinal>1</indFinal><indPres>2</indPres><indIntermed>0</indIntermed><procEmi>0</procEmi><verProc>Microvix . nf-e 4.00</verProc></ide><emit><CNPJ>47784853000397</CNPJ><xNome>PRATA E PRATA COMERCIAL LTDA</xNome><enderEmit><xLgr>Rua Marechal Deodoro</xLgr><nro>344 -</nro><xCpl>CJ 112 COND NAO INFORMADO BL ATALAIA</xCpl><xBairro>Centro</xBairro><cMun>4106902</cMun><xMun>CURITIBA</xMun><UF>PR</UF><CEP>80010010</CEP><cPais>1058</cPais><xPais>BRASIL</xPais><fone>4130292361</fone></enderEmit><IE>9099854208</IE><CRT>1</CRT></emit><dest><CPF>12990305998</CPF><xNome>JAMILLE FOGO</xNome><enderDest><xLgr>Rua Lidia Klinger</xLgr><nro>164</nro><xCpl>Casa 3</xCpl><xBairro>Abranches</xBairro><cMun>4106902</cMun><xMun>CURITIBA</xMun><UF>PR</UF><CEP>82130160</CEP><cPais>1058</cPais><xPais>BRASIL</xPais><fone>41985060763</fone></enderDest><indIEDest>9</indIEDest><email>jamillen818@gmail.com</email></dest><entrega><CPF>12990305998</CPF><xLgr>Rua Lidia Klinger</xLgr><nro>164</nro><xCpl>Casa 3</xCpl><xBairro>Abranches</xBairro><cMun>4106902</cMun><xMun>Curitiba</xMun><UF>PR</UF><CEP>82130160</CEP><cPais>1058</cPais><xPais>BRASIL</xPais></entrega><det nItem=\\\"1\\\"><prod><cProd>58199</cProd><cEAN>SEM GTIN</cEAN><xProd>Gargantilha Prata Ponto Luz Coracao Zirconia</xProd><NCM>71070000</NCM><CFOP>5102</CFOP><uCom>PC</uCom><qCom>1</qCom><vUnCom>110.00</vUnCom><vProd>110.00</vProd><cEANTrib>SEM GTIN</cEANTrib><uTrib>PC</uTrib><qTrib>1</qTrib><vUnTrib>110.00</vUnTrib><vFrete>9.94</vFrete><indTot>1</indTot><xPed>25315</xPed></prod><imposto><vTotTrib>0.00</vTotTrib><ICMS><ICMSSN102><orig>0</orig><CSOSN>102</CSOSN></ICMSSN102></ICMS><IPI><cEnq>999</cEnq><IPITrib><CST>99</CST><vBC>0.00</vBC><pIPI>0.00</pIPI><vIPI>0.00</vIPI></IPITrib></IPI><PIS><PISOutr><CST>49</CST><vBC>0.00</vBC><pPIS>0.00</pPIS><vPIS>0.00</vPIS></PISOutr></PIS><COFINS><COFINSOutr><CST>49</CST><vBC>0.00</vBC><pCOFINS>0.00</pCOFINS><vCOFINS>0.00</vCOFINS></COFINSOutr></COFINS></imposto><infAdProd>Total aproximado dos tributos RS 0,00 . Ref. F58199</infAdProd></det><total><ICMSTot><vBC>0.00</vBC><vICMS>0.00</vICMS><vICMSDeson>0.00</vICMSDeson><vFCP>0.00</vFCP><vBCST>0.00</vBCST><vST>0.00</vST><vFCPST>0.00</vFCPST><vFCPSTRet>0.00</vFCPSTRet><vProd>110.00</vProd><vFrete>9.94</vFrete><vSeg>0.00</vSeg><vDesc>0.00</vDesc><vII>0.00</vII><vIPI>0.00</vIPI><vIPIDevol>0.00</vIPIDevol><vPIS>0.00</vPIS><vCOFINS>0.00</vCOFINS><vOutro>0.00</vOutro><vNF>119.94</vNF><vTotTrib>0.00</vTotTrib></ICMSTot></total><transp><modFrete>0</modFrete><transporta><CNPJ>34028316000103</CNPJ><xNome>EMPRESA BRASILEIRA DE CORREIOS E TELEGRAFOS</xNome><IE>ISENTO</IE><xEnder>SBN Quadra 1 Bloco A, S-N</xEnder><xMun>Brasilia</xMun><UF>DF</UF></transporta><vol><qVol>1</qVol><esp>CAIXA</esp><pesoL>0.200</pesoL><pesoB>0.200</pesoB></vol></transp><pag><detPag><indPag>1</indPag><tPag>03</tPag><vPag>119.94</vPag><card><tpIntegra>1</tpIntegra><CNPJ>47784853000397</CNPJ><tBand>02</tBand><cAut>601914</cAut><CNPJReceb>47784853000397</CNPJReceb><idTermPag>10909_47784853000397_VF</idTermPag></card></detPag></pag><infAdic><infCpl>A garantia do produto é mediante a apresentação da Nota-Fiscal. . Pedido original: 59744 . Compra Padrão, Cliente Novo, Compra com promoção . Entregar para: Jamille Fogo . Método de transporte: Sedex . LOJA VIRTUAL - COMPRA: 25315 Token: 10909279c59810070525 . Nome do Vendedor: E-commerce . Valor aproximado dos tributos: 0,00</infCpl></infAdic><infRespTec><CNPJ>54517628000198</CNPJ><xContato>Rodrigo Kreiss</xContato><email>depto.homologacao@linx.com.br</email><fone>51992801474</fone></infRespTec></infNFe><Signature xmlns=\\\"http://www.w3.org/2000/09/xmldsig#\\\"><SignedInfo><CanonicalizationMethod Algorithm=\\\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\\\" /><SignatureMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\\\" /><Reference URI=\\\"#NFe41250547784853000397550030000098101042403168\\\"><Transforms><Transform Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\\\" /><Transform Algorithm=\\\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\\\" /></Transforms><DigestMethod Algorithm=\\\"http://www.w3.org/2000/09/xmldsig#sha1\\\" /><DigestValue>AUiYFdW1nJqvIEyUH/ySNqV3EYY=</DigestValue></Reference></SignedInfo><SignatureValue>T8PTP3moH1mWOWuAHTHRKRqaC/bNTNBsZzbnGG6gVQZS6HTzNs6p8yZuZRWvdk4phifAbB4FkTTCj8lZM/pagEUHv00P9UxKS0hHRcbXgCJeCDHYIQ27UWHWzAJsm7hnkj+QLMDUNI6Wuo1c1pBqWqWB76XtTNV02EH+PO3QbAJXBaq33z1++p3rYni43/LeSOa9n/39g7DJzXdZe0W3bxCNP0QAXjLl45Ck6EDKNPrVaAlfFjkgKKB6jHZx/HFVwuaJHRvxfrtOri1YyUv0FUqjpkza4DtlTQsR430WSH2IFRJmXyv4UGQhf6vSOJbU4yobB9WOmxJ8XaRmUt/llA==</SignatureValue><KeyInfo><X509Data><X509Certificate>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</X509Certificate></X509Data></KeyInfo></Signature></NFe><protNFe versao=\\\"4.00\\\"><infProt><tpAmb>1</tpAmb><verAplic>PR-v4_9_1</verAplic><chNFe>41250547784853000397550030000098101042403168</chNFe><dhRecbto>2025-05-07T09:14:05-03:00</dhRecbto><nProt>141250144909467</nProt><digVal>AUiYFdW1nJqvIEyUH/ySNqV3EYY=</digVal><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt></protNFe></nfeProc>\"\n    },\n    \"OrderNumber\": \"59744\",\n    \"OrderStatusID\": 6,\n    \"OrderType\": {\n        \"AllowMultiPayment\": false,\n        \"EmitFiscalTicket\": false,\n        \"IntegrationID\": null,\n        \"Name\": null,\n        \"OrderTypeID\": 0,\n        \"RequireInventory\": false,\n        \"RequirePayment\": false\n    },\n    \"OriginalOrderID\": \"00000000-0000-0000-0000-000000000000\",\n    \"PaymentDate\": \"/Date(1746586923500-0300)/\",\n    \"PaymentMethods\": [\n        {\n            \"AcquiredDate\": \"/Date(1746587947350-0300)/\",\n            \"Amount\": 119.94,\n            \"AmountNoInterest\": 119.94,\n            \"CaptureDate\": \"/Date(1746587947350-0300)/\",\n            \"InstallmentAmount\": 119.94,\n            \"Installments\": 1,\n            \"IntegrationID\": \"\",\n            \"InterestValue\": 0,\n            \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n            \"OrderPaymentMethodID\": 27698,\n            \"PaidAmount\": 119.94,\n            \"PaymentCancelledDate\": \"/Date(1746624883143-0300)/\",\n            \"PaymentDate\": \"/Date(1746586923500-0300)/\",\n            \"PaymentInfo\": {\n                \"Alias\": \"MASTER\",\n                \"AuthorizationCode\": \"601914\",\n                \"ConfirmationNumber\": null,\n                \"ExpirationDate\": null,\n                \"Holder\": \"JAMILLE N T FOGO\",\n                \"Identifier\": \"ch_wB7Pmx6COtdGlkDx\",\n                \"Month\": 4,\n                \"NumberHint\": \"550209XXXXXX0684\",\n                \"PaymentDate\": \"/Date(1746586923500-0300)/\",\n                \"PaymentType\": 1,\n                \"Provider\": \"MUNDIPAGGV1\",\n                \"ProviderDocumentNumber\": \"47784853000397\",\n                \"ReceiptCode\": null,\n                \"ReconciliationNumber\": \"3951193849\",\n                \"SecurityCodeHint\": \"XXX\",\n                \"TransactionNumber\": \"tran_rEoB6KauwsYpD5La\",\n                \"Year\": 2032\n            },\n            \"PaymentMethodID\": 1001,\n            \"PaymentNumber\": \"#001\",\n            \"Properties\": [],\n            \"ReconciliationNumber\": null,\n            \"RefundAmount\": 119.94,\n            \"Status\": \"C\",\n            \"TaxAmount\": 0,\n            \"TransactionID\": \"866dea1f-925f-4584-93d8-cefdbfc3dbca\"\n        }\n    ],\n    \"PaymentStatus\": 82,\n    \"PaymentTaxAmount\": 0,\n    \"Pos\": null,\n    \"Properties\": [\n        {\n            \"Amount\": 0,\n            \"Message\": \"\",\n            \"OrderPropertyID\": 173535,\n            \"Reference\": \"tsid\",\n            \"Source\": \"Site\",\n            \"Type\": \"Metadata\",\n            \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>tsid</Name><Value>33</Value><IsCustomization>false</IsCustomization><IsRequired>false</IsRequired></BasketMetadata>\"\n        },\n        {\n            \"Amount\": 0,\n            \"Message\": \"\",\n            \"OrderPropertyID\": 173536,\n            \"Reference\": \"utm_source\",\n            \"Source\": \"Site\",\n            \"Type\": \"Metadata\",\n            \"XmlExtended\": \"<BasketMetadata><ID>0</ID><Name>utm_source</Name><Value>www.google.com</Value><IsCustomization>false</IsCustomization><IsRequired>false</IsRequired></BasketMetadata>\"\n        },\n        {\n            \"Amount\": 9.94,\n            \"Message\": \"\",\n            \"OrderPropertyID\": 173537,\n            \"Reference\": \"2112864062_list_fe_sedex-com-contrato\",\n            \"Source\": \"Site\",\n            \"Type\": \"DeliveryMethod\",\n            \"XmlExtended\": \"<BasketDeliveryMethod><DeliveryMethodID>list_fe_sedex-com-contrato</DeliveryMethodID><BasketID>157477</BasketID><Name>Sedex</Name><Amount>9.94</Amount><DeliveryDiscountAmount>0</DeliveryDiscountAmount><ETA>2|D</ETA><OriginalETA>2|D</OriginalETA><DeliveryGroupID>2112864062</DeliveryGroupID><DeliveryGroupName>LOGISTIC</DeliveryGroupName><Packages>0</Packages><TotalCost>9.94</TotalCost><SellerID>0</SellerID><WarehouseID>0</WarehouseID><DockID>0</DockID><GroupKey>DEFAULT</GroupKey><ScheduleTax xmlns:d2p1=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" d2p1:nil=\\\"true\\\" /><ScheduleStartTimeString /><ScheduleEndTimeString /><ScheduleShiftID xmlns:d2p1=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" d2p1:nil=\\\"true\\\" /><ScheduleDate xmlns:d2p1=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" d2p1:nil=\\\"true\\\" /><ScheduleShiftExternalID xmlns:d2p1=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" d2p1:nil=\\\"true\\\" /><DeliveryMethodAlias>list_fe_sedex-com-contrato</DeliveryMethodAlias><Properties /><DeliveryMethodType>Carrier</DeliveryMethodType><PointOfSales /><PointOfSaleID>0</PointOfSaleID><Latitude /><Longitude /><OnlyShipToStore>false</OnlyShipToStore><DeliveryOptionType>Shipment</DeliveryOptionType><DeliveryEstimatedDate xmlns:d2p1=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" d2p1:nil=\\\"true\\\" /><OriginalAmount>0</OriginalAmount><Volume><Weight>0</Weight><Height>0</Height><Width>0</Width><Length>0</Length></Volume></BasketDeliveryMethod>\"\n        },\n        {\n            \"Amount\": 0,\n            \"Message\": null,\n            \"OrderPropertyID\": 173538,\n            \"Reference\": \"IP_ADDRESS\",\n            \"Source\": \"Site\",\n            \"Type\": \"Metadata\",\n            \"XmlExtended\": \"<BasketMetadata xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\"><ID>0</ID><Name>IP_ADDRESS</Name><Value>191.177.194.100</Value><IsCustomization>false</IsCustomization><IsRequired>false</IsRequired></BasketMetadata>\"\n        },\n        {\n            \"Amount\": 0,\n            \"Message\": null,\n            \"OrderPropertyID\": 173539,\n            \"Reference\": \"DELIVERY_OPTION_PKG\",\n            \"Source\": \"Site\",\n            \"Type\": \"Metadata\",\n            \"XmlExtended\": \"<BasketMetadata xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\"><ID>0</ID><Name>DELIVERY_OPTION_PKG</Name><Value>0</Value><IsCustomization>false</IsCustomization><IsRequired>false</IsRequired></BasketMetadata>\"\n        },\n        {\n            \"Amount\": 0,\n            \"Message\": null,\n            \"OrderPropertyID\": 173540,\n            \"Reference\": \"Plugin.ClearSale.Approved\",\n            \"Source\": \"Site\",\n            \"Type\": \"Metadata\",\n            \"XmlExtended\": \"<BasketMetadata xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\"><ID>0</ID><Name>Plugin.ClearSale.Approved</Name><Value>true</Value><IsCustomization>false</IsCustomization><IsRequired>false</IsRequired></BasketMetadata>\"\n        },\n        {\n            \"Amount\": 0,\n            \"Message\": null,\n            \"OrderPropertyID\": 173541,\n            \"Reference\": \"Plugin.ClearSale.Result\",\n            \"Source\": \"Site\",\n            \"Type\": \"Metadata\",\n            \"XmlExtended\": \"<BasketMetadata xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:xsd=\\\"http://www.w3.org/2001/XMLSchema\\\"><ID>0</ID><Name>Plugin.ClearSale.Result</Name><Value>APA</Value><IsCustomization>false</IsCustomization><IsRequired>false</IsRequired></BasketMetadata>\"\n        }\n    ],\n    \"Remarks\": \"Produto: 10909.58199 para presente \",\n    \"SalesRepresentative\": {\n        \"CellPhone\": null,\n        \"Commission\": null,\n        \"Email\": null,\n        \"FriendlyCode\": null,\n        \"Identification\": null,\n        \"ImageTimestamp\": null,\n        \"IntegrationID\": null,\n        \"MaxDiscountAmount\": 0,\n        \"Name\": null,\n        \"Phone\": null,\n        \"SalesRepresentativeID\": 0\n    },\n    \"Seller\": {\n        \"EMail\": \"loja@prataearte.com.br\",\n        \"IntegrationID\": \"10909.27\",\n        \"Name\": \"Shopping Palladium - Piso L1, Loja 1063\",\n        \"Phone\": \"\",\n        \"SellerID\": 20\n    },\n    \"SellerCommissionAmount\": 6,\n    \"ShipmentDate\": \"/Date(1746624882043-0300)/\",\n    \"ShipmentStatus\": 87,\n    \"Shipments\": [\n        {\n            \"AssignUserId\": null,\n            \"AssignUserName\": null,\n            \"DeliveryMethodID\": 610,\n            \"DockID\": null,\n            \"OrderID\": \"0850c016-5eff-48db-add4-107f098108a8\",\n            \"OrderShipmentID\": \"8224da46-98e3-4d15-83b0-9e348defebef\",\n            \"Packages\": [],\n            \"ShipmentNumber\": \"#001\",\n            \"ShipmentStatus\": \"A\"\n        }\n    ],\n    \"ShopperTicketID\": \"2bb00fc2-6126-4a9a-afdc-7f558b55137f\",\n    \"SubTotal\": 110,\n    \"Tags\": [\n        {\n            \"Alias\": \"purchase-default\",\n            \"IsDeleted\": false,\n            \"IsSystem\": true,\n            \"Name\": \"Compra Padrão\",\n            \"TagID\": 1\n        },\n        {\n            \"Alias\": \"customer-new\",\n            \"IsDeleted\": false,\n            \"IsSystem\": true,\n            \"Name\": \"Cliente Novo\",\n            \"TagID\": 5\n        },\n        {\n            \"Alias\": \"risk-approved\",\n            \"IsDeleted\": false,\n            \"IsSystem\": true,\n            \"Name\": \"Análise de risco aprovada\",\n            \"TagID\": 6\n        },\n        {\n            \"Alias\": \"risk-clearsale-apa\",\n            \"IsDeleted\": false,\n            \"IsSystem\": true,\n            \"Name\": \"Análise Status\",\n            \"TagID\": 9\n        },\n        {\n            \"Alias\": \"purchase-promotion\",\n            \"IsDeleted\": false,\n            \"IsSystem\": true,\n            \"Name\": \"Compra com promoção\",\n            \"TagID\": 16\n        }\n    ],\n    \"TaxAmount\": 0,\n    \"Total\": 119.94,\n    \"TotalDue\": 119.94,\n    \"TotalPaid\": 119.94,\n    \"TotalRefunded\": 119.94,\n    \"TrafficSourceID\": 33,\n    \"WebSiteID\": 1,\n    \"WebSiteIntegrationID\": \"10909\",\n    \"WebSiteName\": \"Base\",\n    \"Wishlist\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "DequeueQueueItems",
+			"protocolProfileBehavior": {
+				"disableCookies": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"QueueItems\": [\r\n        \"<string>\",\r\n        \"<string>\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prataearte.layer.core.dcg.com.br/v1/Queue/API.svc/web/DequeueQueueItems",
+					"protocol": "https",
+					"host": [
+						"prataearte",
+						"layer",
+						"core",
+						"dcg",
+						"com",
+						"br"
+					],
+					"path": [
+						"v1",
+						"Queue",
+						"API.svc",
+						"web",
+						"DequeueQueueItems"
+					]
+				},
+				"description": "Endpoint utilizado para remover o item da fila de integração. Na requisição deve ser enviado o QueueItemID informado na SearchQueueItems."
+			},
+			"response": [
+				{
+					"name": "DequeueQueueItems",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"QueueItems\": [\r\n        \"16f75919-9c63-4111-a419-ed29812a0804\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prataearte.layer.core.dcg.com.br/v1/Queue/API.svc/web/DequeueQueueItems",
+							"protocol": "https",
+							"host": [
+								"prataearte",
+								"layer",
+								"core",
+								"dcg",
+								"com",
+								"br"
+							],
+							"path": [
+								"v1",
+								"Queue",
+								"API.svc",
+								"web",
+								"DequeueQueueItems"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"Errors\": [],\n    \"IsValid\": true,\n    \"Warnings\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "SearchOrderStatus",
+			"protocolProfileBehavior": {
+				"disableCookies": true,
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Page\": {\r\n        \"PageIndex\": \"<integer>\",\r\n        \"PageSize\": \"<integer>\"\r\n    },\r\n    \"Where\": \"<string>\",\r\n    \"WhereMetadata\": \"<string>\",\r\n    \"OrderBy\": \"<string>\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://prataearte.layer.core.dcg.com.br/v1/Sales/API.svc/web/SearchOrderStatus",
+					"protocol": "https",
+					"host": [
+						"prataearte",
+						"layer",
+						"core",
+						"dcg",
+						"com",
+						"br"
+					],
+					"path": [
+						"v1",
+						"Sales",
+						"API.svc",
+						"web",
+						"SearchOrderStatus"
+					]
+				},
+				"description": "Endpoint que lista os status de pedidos que existem na loja."
+			},
+			"response": [
+				{
+					"name": "SearchOrderStatus",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Page\": {\r\n        \"PageIndex\": 0,\r\n        \"PageSize\": 100\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://prataearte.layer.core.dcg.com.br/v1/Sales/API.svc/web/SearchOrderStatus",
+							"protocol": "https",
+							"host": [
+								"prataearte",
+								"layer",
+								"core",
+								"dcg",
+								"com",
+								"br"
+							],
+							"path": [
+								"v1",
+								"Sales",
+								"API.svc",
+								"web",
+								"SearchOrderStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"Errors\": [],\n    \"IsValid\": true,\n    \"Warnings\": null,\n    \"Page\": {\n        \"ErrorMessage\": null,\n        \"Index\": 0,\n        \"PageCount\": 0,\n        \"PageSize\": 100,\n        \"RecordCount\": 21\n    },\n    \"Result\": [\n        {\n            \"Color\": \"#aaaaaa\",\n            \"IntegrationID\": null,\n            \"IsDefault\": true,\n            \"OrderStatusID\": 1,\n            \"Status\": \"Novo\"\n        },\n        {\n            \"Color\": \"#ffd600\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 3,\n            \"Status\": \"Aguardando Pagamento\"\n        },\n        {\n            \"Color\": \"#50258f\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 4,\n            \"Status\": \"Pagamento Aprovado\"\n        },\n        {\n            \"Color\": \"#28a745\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 5,\n            \"Status\": \"Entregue\"\n        },\n        {\n            \"Color\": \"#bf0711\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 6,\n            \"Status\": \"Cancelado\"\n        },\n        {\n            \"Color\": \"#007bff\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 7,\n            \"Status\": \"Enviado\"\n        },\n        {\n            \"Color\": \"#dd4e00\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 19,\n            \"Status\": \"Antifraude - Aguardando Análise\"\n        },\n        {\n            \"Color\": \"#333333\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 20,\n            \"Status\": \"Antifraude - Reprovado\"\n        },\n        {\n            \"Color\": \"#50258f\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 21,\n            \"Status\": \"Antifraude - Aprovado\"\n        },\n        {\n            \"Color\": \"#6c757d\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 22,\n            \"Status\": \"Antifraude - Erro de Integração\"\n        },\n        {\n            \"Color\": \"#FDEADA\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 31,\n            \"Status\": \"Faturado\"\n        },\n        {\n            \"Color\": \"#FF0000\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 32,\n            \"Status\": \"Fluxo inconsistente\"\n        },\n        {\n            \"Color\": \"#FAC08F\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 33,\n            \"Status\": \"Erro ao confirmar pagamento\"\n        },\n        {\n            \"Color\": \"#da70d6\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 35,\n            \"Status\": \"Exceção de Entrega\"\n        },\n        {\n            \"Color\": \"#DA70D6\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 36,\n            \"Status\": \"Pagamento Reembolsado\"\n        },\n        {\n            \"Color\": \"#FFD600\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 37,\n            \"Status\": \"Em Análise\"\n        },\n        {\n            \"Color\": \"#DA70D6\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 38,\n            \"Status\": \"Aguardando Troca\"\n        },\n        {\n            \"Color\": \"#548DD4\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 39,\n            \"Status\": \"Em Separação\"\n        },\n        {\n            \"Color\": \"#CCC1D9\",\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 40,\n            \"Status\": \"Pedido - Aguardando em loja para retirada\"\n        },\n        {\n            \"Color\": null,\n            \"IntegrationID\": null,\n            \"IsDefault\": false,\n            \"OrderStatusID\": 41,\n            \"Status\": \"Não retirado\"\n        },\n        {\n            \"Color\": \"#E5B9B7\",\n            \"IntegrationID\": \"\",\n            \"IsDefault\": false,\n            \"OrderStatusID\": 42,\n            \"Status\": \"Motoboy-Enviado\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
