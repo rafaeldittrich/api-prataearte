@@ -77,8 +77,9 @@ def load_config():
     with open(config_path, 'r') as file:
         return yaml.safe_load(file)
 
-# Configura credenciais do Google Cloud
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(os.path.dirname(os.path.dirname(__file__)), "credentials", "datalake-betminds.json")
+# Configura credenciais do Google Cloud (apenas se não estiver no Cloud Run)
+if not os.environ.get('K_SERVICE'):  # Se não estiver no Cloud Run
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(os.path.dirname(os.path.dirname(__file__)), "credentials", "datalake-betminds.json")
 
 class LinxAPI:
     def __init__(self, config):
