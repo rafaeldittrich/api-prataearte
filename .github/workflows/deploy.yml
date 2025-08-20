@@ -30,7 +30,9 @@ jobs:
         project_id: ${{ env.PROJECT_ID }}
 
     - name: Configure Docker
-      run: gcloud auth configure-docker
+      run: |
+        gcloud auth configure-docker us-central1-docker.pkg.dev
+        echo "Docker configurado para Artifact Registry"
 
     - name: Build and push Docker image
       run: |
