@@ -10,6 +10,10 @@ import logging
 from datetime import datetime
 from flask import Flask, request, jsonify
 
+# Configuração de logging para Cloud Run
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 # Adiciona o diretório src ao path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
@@ -22,10 +26,6 @@ except ImportError as e:
     # Fallback: define uma função vazia
     def import_historical_orders(*args, **kwargs):
         raise Exception("Módulo import_historical_orders não pôde ser carregado")
-
-# Configuração de logging para Cloud Run
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 # Cria a aplicação Flask
 app = Flask(__name__)
