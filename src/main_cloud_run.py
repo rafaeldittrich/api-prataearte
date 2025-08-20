@@ -5,8 +5,13 @@ Equivale a executar: python3 src/import_historical_orders.py --only-new
 """
 
 import os
+import sys
 import logging
 from flask import Flask, request, jsonify
+
+# Adiciona o diretório src ao path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
+
 from import_historical_orders import import_historical_orders
 
 # Configuração de logging para Cloud Run
